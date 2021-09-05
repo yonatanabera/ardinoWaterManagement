@@ -3,6 +3,7 @@
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SensorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,3 +34,5 @@ Route::get('yoni', function(){
 Route::resource('customer', RegistrationController::class);
 Route::get('customerList', [RegistrationController::class, 'lists'])->name('customerList');
 Route::post('searchCustomer', [RegistrationController::class, 'searchCustomer'])->name('searchCustomer');
+
+Route::get('LEDState', [SensorController::class, 'LEDState']);

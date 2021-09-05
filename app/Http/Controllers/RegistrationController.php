@@ -75,13 +75,11 @@ class RegistrationController extends Controller
         // Check the amount of m3 remaining, if it is low show warning
         // remaining amount = prepaid amount-used amount
 
-        $remainingAmount=$customer->remainingAmount;
+        $remainingAmount=$customer->deposite-$customer->usedAmount;
         $usedAmount=$customer->usedAmount; 
-        $currentConsumption=$customer->currentConsumption;
-        $remainingConsumption=$customer->totalConsumption - $customer->currentConsumption;
       
         
-        return view('show', compact('remainingAmount', 'usedAmount', 'currentConsumption', 'remainingConsumption', 'customer')); 
+        return view('show', compact('remainingAmount', 'usedAmount', 'customer')); 
     }
 
     /**
@@ -112,8 +110,8 @@ class RegistrationController extends Controller
         // return $customer;
         $input=[
             'deposite'=>$request->deposite,
-            'remainingAmount'=>$request->deposite + $customer->remainingAmount,
-            'totalConsumption'=> $customer->totalConsumption + ($request->deposite * 6.0)
+            'usedAmount' => 0,
+            'totalLitres' => 0
         ];
 
          Customer::where('deviceNumber', $id)->update($input);
@@ -138,9 +136,7 @@ class RegistrationController extends Controller
         return DataTables::of($data)->editColumn('created_at', function($data){
             return $data->created_at->diffForHumans();
         })->editColumn('remainingAmount', function($data){
-            return $data->remainingAmount-$data->usedAmount;
-        })->editColumn('currentConsumption', function($data){
-            return $data->totalConsumption - $data->currentConsumption;
+            return $data->deposite-$data->usedAmount;
         })->addColumn('action', function($data){
             $button='<form method="get" action="'.route('customer.show', $data->deviceNumber).'">'.csrf_field().'<button type="submit" value="" class="edit btn btn-outline-secondary btn-sm my-1 mx-1" >Show</button></form>';
             return $button;

@@ -15,9 +15,7 @@ class Customer extends Model
         'name',
         'deviceNumber',
         'deposite',
-        'remainingAmount',
         'usedAmount', 
-        'currentConsumption',
-        'totalConsumption'
+        'totalLitres',
     ];
 }

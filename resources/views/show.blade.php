@@ -34,23 +34,20 @@
                             <p class="  ">This month Deposite : <small class="  ">{{ $customer->deposite ." birr"}}</small></p> 
                         </div class="form-group">
 
-                        <div class="form-group">
-                            <p class="  ">Current Amount : <small class="  ">{{ $remainingAmount -$usedAmount . " birr" }}</small></p> 
-                        </div>
 
                         <div class="form-group">
                             <p class=" ">Balance</p>
                             <div class="progress">
-                                <div class="progress-bar {{ ($remainingAmount-$usedAmount) < 25 ? "bg-danger": "bg-primary" }}" role="progressbar" style="width: {{ $remainingAmount-$usedAmount }}%;" aria-valuenow="{{ $remainingAmount }}" aria-valuemin="0" aria-valuemax="100">{{ $remainingAmount-$usedAmount . " birr" }}</div>
+                                <div class="progress-bar {{ ($remainingAmount) < 25 ? "bg-danger": "bg-primary" }}" role="progressbar" style="width: {{ $remainingAmount-$usedAmount }}%;" aria-valuenow="{{ $remainingAmount }}" aria-valuemin="0" aria-valuemax="100">{{ $remainingAmount-$usedAmount . " birr" }}</div>
                             </div>
                         </div>
 
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             <p class=" ">Consumption</p>
                             <div class="progress">
                                 <div class="progress-bar {{ (($remainingConsumption/$customer->totalConsumption)*100) < 25 ? "bg-danger": "bg-success" }}" role="progressbar" style="width: {{ ($remainingConsumption/$customer->totalConsumption)*100 }}%;" aria-valuenow="{{ $remainingConsumption }}" aria-valuemin="0" aria-valuemax="{{ floor($customer->totalConsumption) }}">{{ $remainingConsumption . " Metric cube"}}</div>
                             </div>
-                        </div>
+                        </div> --}}
 
 
 

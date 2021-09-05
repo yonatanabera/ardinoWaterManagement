@@ -78,7 +78,7 @@
 
         <table class="table table-bordered yajra-datatable">
             <thead>
-                <tr>
+                {{-- <tr>
                     <th>Device Number</th>
                     <th>Name</th>
                     <th>Remaining Amount</th>
@@ -86,6 +86,17 @@
                     <th>Monthly Consumption</th>
                     <th>Total Consumption</th>
                     <th>Monthly Deposite</th>
+                    <th>Action</th>
+                </tr> --}}
+
+                
+                <tr>
+                    <th>Device Number</th>
+                    <th>Name</th>
+                    <th>Total Litres (L)</th>
+                    <th>Deposite (ETB)</th>
+                    <th>Used Amount (ETB)</th>
+                    <th>Remaining Amount (ETB)</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -112,11 +123,10 @@
             columns: [
                 {data: 'deviceNumber', name: 'deviceNumber'},
                 {data: 'name', name: 'name'},
-                {data: 'remainingAmount', name: 'remainingAmount'},
-                {data: 'usedAmount', name: 'usedAmount'},
-                {data: 'currentConsumption', name: 'currentConsumption'},
-                {data: 'totalConsumption', name: 'totalConsumption'},
+                {data: 'totalLitres', name: 'totalLitres'},
                 {data: 'deposite', name: 'deposite'},
+                {data: 'usedAmount', name: 'usedAmount'},
+                {data: 'remainingAmount', name: 'remainingAmount'},
                 {data: 'action', name: 'action'},
 
 

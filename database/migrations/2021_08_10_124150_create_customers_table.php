@@ -18,10 +18,8 @@ class CreateCustomersTable extends Migration
             $table->string('name'); 
             $table->string('deviceNumber');
             $table->float('deposite')->default(0.0);
-            $table->float('remainingAmount')->default(0.0); 
             $table->float('usedAmount')->default(0.0); 
-            $table->float('currentConsumption')->default(0.0); 
-            $table->float('totalConsumption')->default(0.0);
+            $table->float('totalLitres')->default(0.0);
             $table->timestamps();
         });
     }
